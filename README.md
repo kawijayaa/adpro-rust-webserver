@@ -17,3 +17,7 @@ The last line just prints out the data. The `?` means that this print is intende
 We refactored to use an if statement when initializing the status line for the response and the HTML filename to reduce repeated coded.
 
 ![Commit 3 screen capture](/assets/images/commit3.png)
+
+### Commit 4 Reflection
+
+The /sleep is slow because we intendedly asked the thread to sleep for 10 seconds before returning a response with the ```thread::sleep()``` function.
