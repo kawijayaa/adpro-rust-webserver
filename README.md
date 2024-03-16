@@ -21,3 +21,7 @@ We refactored to use an if statement when initializing the status line for the r
 ### Commit 4 Reflection
 
 The /sleep is slow because we intendedly asked the thread to sleep for 10 seconds before returning a response with the ```thread::sleep()``` function.
+
+### Commit 5 Reflection
+
+The ThreadPool is implemented by making a vector of workers where the workers will create a thread to run the job. We are using channels to bridge communitaction between the ThreadPool and Worker. The receiver is wrapped with Mutex to avoid race conditions and Arc to avoid borrowing the receiver.
