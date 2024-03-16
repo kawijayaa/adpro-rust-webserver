@@ -11,3 +11,9 @@ The last line just prints out the data. The `?` means that this print is intende
 ### Commit 2 Reflection
 
 ![Commit 2 screen capture](/assets/images/commit2.png)
+
+### Commit 3 Reflection
+
+We refactored to use an if statement when initializing the status line for the response and the HTML filename to reduce repeated coded.
+
+![Commit 3 screen capture](/assets/images/commit3.png)
