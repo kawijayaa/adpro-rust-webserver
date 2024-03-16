@@ -1,10 +1,20 @@
 use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener, TcpStream}, thread, time::Duration};
 
-use hello::ThreadPool;
+use hello::{PoolCreationError, ThreadPool};
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
-    let pool = ThreadPool::new(4);
+    let pool = match ThreadPool::build(4) {
+        Ok(pool) => pool,
+        Err(error) => {
+            match error {
+                PoolCreationError::InvalidSize => {
+                    eprint!("Pool size is not valid!");
+                    return;
+                }
+            }
+        }
+    };
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();

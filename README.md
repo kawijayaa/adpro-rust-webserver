@@ -25,3 +25,7 @@ The /sleep is slow because we intendedly asked the thread to sleep for 10 second
 ### Commit 5 Reflection
 
 The ThreadPool is implemented by making a vector of workers where the workers will create a thread to run the job. We are using channels to bridge communitaction between the ThreadPool and Worker. The receiver is wrapped with Mutex to avoid race conditions and Arc to avoid borrowing the receiver.
+
+### Commit Bonus Reflection
+
+The difference between the old `new()` function and the new `build()` function is that the new `build()` function returns a Result type. This will ease us when handling errors if the ThreadPool creation is unsuccessful. I implemented the `PoolCreationError` as an enum with only one value of `InvalidSize`. When we are using the `build()` function, we can match the Result type when it returns an `Ok()` or an `Err()` value.
